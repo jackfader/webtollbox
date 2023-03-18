@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack Fader</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@mui/material@5.3.1/umd/material-ui.production.min.js" crossorigin></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const {
+      Card,
+      CardContent,
+      CardActionArea,
+      Container,
+      Grid,
+      Typography,
+      createTheme,
+      ThemeProvider,
+    } = MaterialUI;
+
+    const theme = createTheme({
+      palette: {
+        primary: {
+          main: '#673ab7',
+        },
+      },
+    });
+
+    const projects = [
+      {
+        title: 'Dinner Decision',
+        description: 'Add restaurants to your list, and let Dinner Decision randomly pick one for you; if you don\'t like it, remove it from the list and get another suggestion, ultimately linking you to Google Maps when you find the perfect choice.',
+        url: 'https://jackfader.github.io/Dinner-Decision/',
+        image: 'img/dinner.png'
+      },
+      {
+        title: 'Drop Watch',
+        description: 'Calculate the height of an object based on its fall duration and explore how it differs across various planets in our solar system.',
+        url: 'https://jackfader.github.io/DropWatch/',
+        image: 'img/watch.png'
+      },
+      {
+        title: 'Group Split',
+        description: 'Easily split the bill between up to 10 people by adding items and their costs, and the bill will be divided evenly.',
+        url: 'https://jackfader.github.io/Group-Split/',
+        image: 'img/split.png'
+      },
+    ];
+
+    function App() {
+      return (
+        React.createElement(ThemeProvider, { theme: theme },
+          React.createElement(Container, { maxWidth: 'lg', style: { textAlign: 'center' } },
+            React.createElement(Typography, { variant: 'h4', component: 'h1', gutterBottom: true }, 'Jacks Web Toolbox'),
+            React.createElement(Typography, { variant: 'subtitle1', component: 'p', gutterBottom: true },
+              'Welcome to Web Toolbox, a collection of easy-to-use web tools designed to simplify everyday tasks. Our goal is to provide fast, accessible, and user-friendly solutions to help you measure heights, split bills, and decide on what to eat. Explore our selection of websites and experience the convenience of having these handy resources at your fingertips.'),
+            React.createElement(Grid, { container: true, spacing: 3, justifyContent: 'center' },
+              projects.map((project, index) =>
+                React.createElement(Grid, { item: true, xs: 12, sm: 6, md: 4, key: index },
+                  React.createElement(Card, {},
+                    React.createElement(CardActionArea, { onClick: () => window.open(project.url, '_blank') },
+                      React.createElement('img', { src: project.image, alt: project.title, width: '100%' }),
+                      React.createElement(CardContent, {},
+                        React.createElement(Typography, { variant: 'h6', component: 'h2' }, project.title),
+                        React.createElement(Typography, { variant: 'body2', color: 'textSecondary', component: 'p' }, project.description)
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            React.createElement('footer', { style: { textAlign: 'center', marginTop: '2rem' } },
+              React.createElement(Typography, { variant: 'subtitle2', component: 'p', gutterBottom: true },
+                'Have an idea for a new tool? Submit your suggestions by reaching out to us on Twitter!'),
+              React.createElement('a', { href: 'https://twitter.com/faderjack', target: '_blank', rel: 'noreferrer' },
+                'Created by @faderjack'
+              )
+            )
+          )
+        )
+      );
+    }
+
+    ReactDOM.render(
+      React.createElement(App),
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>

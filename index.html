@@ -62,7 +62,12 @@ description: 'A convenient website that allows users to input the number of peop
 url: 'pizzapy.info', // Replace with the URL where you host the Emoji Weather project
 image: 'img/pizzapy.png'
 },
-
+{
+title: '🔗 Link Scrubber 🛀',
+description: 'Link Scrubber helps you remove everything added to the end of your URLs. Copy a link into the input field below and click the "Scrub" button to clean it.',
+url: 'https://jackfader.github.io/LinkScrubber/', // Replace with the URL where you host the Emoji Weather project
+image: 'img/scrub.png'
+},
     ];
 
     function App() {
@@ -71,7 +76,7 @@ image: 'img/pizzapy.png'
           React.createElement(Container, { maxWidth: 'lg', style: { textAlign: 'center' } },
             React.createElement(Typography, { variant: 'h4', component: 'h1', gutterBottom: true }, 'Jacks Web Toolbox'),
             React.createElement(Typography, { variant: 'subtitle1', component: 'p', gutterBottom: true },
-              'Welcome to Web Toolbox, a collection of easy-to-use web tools designed to simplify everyday tasks. Our goal is to provide fast, accessible, and user-friendly solutions to help you measure heights, split bills, and decide on what to eat. Explore our selection of websites and experience the convenience of having these handy resources at your fingertips.'),
+              'Welcome to Web Toolbox, a demonstration of rapid iteration and development powered by GPT-3.5 and GPT-4 AI technology. These demo sites showcase the potential for product managers and developers to efficiently prototype and create MVPs using AI systems. Although the web tools provided here are fun examples, the primary focus is on showcasing the ease and speed at which solutions can be built through quick code generation based on single paragraph prompts. Each of these sites was coded based on a single paragraph prompt and no more than 4 follow up prompts. The natural back-and-forth iterative process enabled by these AI systems have the potential to revolutionize the way we approach product development.'),
             React.createElement(Grid, { container: true, spacing: 3, justifyContent: 'center' },
               projects.map((project, index) =>
                 React.createElement(Grid, { item: true, xs: 12, sm: 6, md: 4, key: index },
